@@ -13,8 +13,6 @@ public class RoomChat implements IRoomChat{
 	public void joinRoom(String usrName)
 	{
 		
-		
-		
 	}
 	
 	

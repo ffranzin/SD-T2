@@ -1,25 +1,26 @@
-import java.awt.List;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-/*
-o servidor mantém uma lista de salas (roomList) e cada sala uma lista de usuários
-(userList). Não há limite de salas, tampouco de usuários por sala;
 
-
-*/
-
-public class ServerRoomChat implements IServerRoomChat {
+public class ServerRoomChat extends UnicastRemoteObject  implements IServerRoomChat {
 
 	private String usrName; 
 	private ArrayList<RoomChat> roomList;
 	
-	
-	public ServerRoomChat() {
+	public ServerRoomChat() throws RemoteException 
+	{
 		roomList = new ArrayList<RoomChat>();
 		
+		
+		
+	}
+	
+	
+	public static void main(String[] args) throws RemoteException
+	{
 		ServerRoomChat server = new ServerRoomChat();
 		
 		try {
@@ -29,20 +30,22 @@ public class ServerRoomChat implements IServerRoomChat {
 			e.printStackTrace();
 		}
 		
+		
+		
+		
 	}
 	
-	
 	//Send the list of rooms to client
-	public ArrayList<RoomChat> getRooms()
+	public ArrayList<RoomChat> getRooms() throws RemoteException
 	{
 		return roomList;
 	}
 	
 	
-	public void criateRoom(String roomName)
+	public void criateRoom(String roomName) throws RemoteException
 	{
 		RoomChat room = new RoomChat(roomName); //nameFrominterface 
-		
+		System.out.println("crio");
 		roomList.add(room);
 	}
 	
