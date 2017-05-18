@@ -1,8 +1,20 @@
+import java.util.ArrayList;
 
 public class RoomChat implements IRoomChat{
 	
+	private String roomName;
+	private ArrayList<UserChat> usrList;
+	
+	
+	public RoomChat(String roomName) {
+		this.roomName = roomName;
+	}
+	
 	public void joinRoom(String usrName)
 	{
+		
+		
+		
 	}
 	
 	
@@ -12,11 +24,14 @@ public class RoomChat implements IRoomChat{
 	
 	public void leaveRoom(String usrName)
 	{
+		
 	}
 	
 	
 	public void closeRoom()
 	{
+		
+		
 	}
 	
 }
